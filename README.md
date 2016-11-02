@@ -30,4 +30,4 @@ Behaves like deleteFile
 * {callback} ``callback`` required
 
 ## ATTENTION
-** whenever you need to create a path use the ```js path.join("folder1", "folder2", ..., "folderN") ``` functionality from the path module {https://nodejs.org/api/path.html}. This should make it safer to delete folders that are only relative to the root path provided!!!! **
+__ whenever you need to create a path use the ```javascript path.join("folder1", "folder2", ..., "folderN") ``` functionality from the path module {https://nodejs.org/api/path.html}. This should make it safer to delete folders that are only relative to the root path provided!!!! __

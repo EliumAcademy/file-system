@@ -71,6 +71,7 @@ const rmdir = function(filepath, callback, root = ".") {
  *   fs.writeFile('path/filename.txt', 'something', {})
  * ```
  */
+ //
 
 const writeFile = function(filename, data, callback) {
     var dirname = path.dirname(filename);
