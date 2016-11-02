@@ -17,62 +17,23 @@ if(fs.existsSync(testPath)){ fs.rmdirSync(testPath) }
 // create working dir if it did not exists
 fs.mkdirSync(testPath);
 
-describe('mkdir', function() {
-  it('one level Directory', function(done) {
-    var folderName = "a" 
-    var itPath = path.join(testPath, folderName)
-    // create dir to be deleted
-    fs.mkdirSync(itPath);
+describe('rmdir', function() {
 
-    file.rmdir(folderName, function(err) {
-      if (err) throw err;
-      var exists = fs.existsSync(itPath);
-      expect(exists).toEqual(false);
-      done();
-    }, testPath);
+  it('one level Directory', function(done) {
+    // test rm dir cann delete a single directory
   });
 
   it('multiple level Directory', function(done) {
-    var folderName = path.join('1','2','3','4')
-    var itPath = path.join(testPath, folderName)
-    // create dir to be deleted
-    fs.mkdirSync(itPath)
-
-    file.rmdir(folderName, function(err) {
-      if (err) throw err;
-      var exists = fs.existsSync(itPath);
-      expect(exists).toEqual(false);
-      done();
-    }, testPath);
+    // test rmdir with mutiple directories to be removed recursively
   });
 
   it('delete half way', function(done) {
-    var topNames = path.join('31','41') 
-    var bottomNames = path.join('11','21') 
-    var itPath = path.join(testPath, bottomNames, topNames)
-
-    fs.mkdirSync(itPath)
-    file.rmdir(topNames , function(err) {
-      if (err) throw err;
-      var exists = fs.existsSync(path.join(testPath, bottomNames));
-      expect(exists).toEqual(true);
-      done();
-    }, path.join(testPath, bottomNames));
+    // test rm dir only detes part of a file tree pre created
   });
 
 
   it('callback', function(done) {
-    var folderName = "callback" 
-    var itPath = path.join(testPath, folderName)
-
-    fs.mkdirSync(itPath)
-    var a;
-
-    fs.rmdir(itPath, function(err) {
-      a = 1;
-      expect(a).toEqual(1);
-      done();
-    }, testPath);
+    // test check that rmdir executes a callback
   });
 
 });

@@ -5,7 +5,7 @@
 var fs = require('fs');
 var path = require('path');
 
-
+// find if the a file or directory exist at location, if it does not, it recursivelly goes backwars in the filepath
 function getExists(filepath) {
     var exists = fs.existsSync(filepath);
     if (exists) {
@@ -15,8 +15,16 @@ function getExists(filepath) {
     }
 }
 
-
-function createDir(dirsNames, root, callback) {
+// recursively create directories
+/**
+ * @description 
+ * Create dirs recursively and asyncronously
+ * 
+ * @param { Array    } dirNames
+ * @param { String   } root
+ * @param { Function } callback
+ */
+function createDir (dirsNames, root, callback) {
     if (!dirsNames[0]) {
         return callback()
     }
@@ -26,6 +34,13 @@ function createDir(dirsNames, root, callback) {
     });
 }
 
+/**
+ * @description 
+ * Implements deleteDir
+ * 
+ * @param  {String}   filepath
+ * @param  {Function} callbakc
+ */
 const mkdir = function(filepath, callback) {
     var root = getExists(filepath);
     var children = path.relative(root, filepath);
@@ -36,7 +51,14 @@ const mkdir = function(filepath, callback) {
     createDir(children, root, callback);
 };
 
-
+/**
+ * @description 
+ * Remove dirs recursively and asyncronously
+ * 
+ * @param { Array    } dirNames
+ * @param { Function } callback
+ * @param { String   } root
+ */
 function removeDir(dirsNames, callback, root = ".") {
     if (!dirsNames[0]) {
         return callback()
@@ -48,6 +70,14 @@ function removeDir(dirsNames, callback, root = ".") {
     });
 }
 
+/**
+ * @description 
+ * Implements removeDir
+ * 
+ * @param  {String}   filepath
+ * @param  {Function} callback
+ * @param  {String}   root
+ */
 const rmdir = function(filepath, callback, root = ".") {
     var top = getExists(path.join(root, filepath));
     var children = path.relative(root, top);
@@ -67,11 +97,10 @@ const rmdir = function(filepath, callback, root = ".") {
  * 
  * @example
  * ```js
- *   fs.writeFile('path/filename.txt', 'something')
- *   fs.writeFile('path/filename.txt', 'something', {})
+ *   fs.writeFile('path/filename.txt', 'something', function(){if err console.log(err)})
+ *   fs.writeFile('path/filename.txt', 'something', function(){if err console.log(err)})
  * ```
  */
- //
 
 const writeFile = function(filename, data, callback) {
     var dirname = path.dirname(filename);
@@ -81,18 +110,23 @@ const writeFile = function(filename, data, callback) {
     });
 };
 
+/**
+ * @description 
+ * Delete File
+ * 
+ * @example
+ * ```js
+ *   fs.deleteFile('path/filename.txt', function(){if err console.log(err)})
+ *   fs.deleteFile('path/filename.txt', function(){if err console.log(err)})
+ * ```
+ */
+
 
 const deleteFile = function(filename, callback) {
     fs.unlink(filename, callback);
 };
 
 
-/**
- * @description
- * Remove folder and files in folder, but it's synchronous
- * @example
- * file.rmdirSync('path');
- */
 
 
 module.exports = {
