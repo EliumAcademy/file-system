@@ -10,32 +10,32 @@ The functionalities of the efs module are:
 
 ### .mkdir(filepath, callback)
 If the filepath is not absolute, the relative filepath will be used by node starting from the directory the script is being executed from. A callback must be given; even if empty.
-* {string} ``filepath`` required
-* {function} ``callback`` required
+* {string}   `` filepath `` required
+* {function} `` callback `` required
 
 
 
 
 ### .rmdir(filepath, callback, root = ".")
 the filepath must be relative to the root dir, if not specified the root will default to the directory the script is called from.
-* {string} ``filepath`` required
-* {function} ``callback`` required
-* {root} ``root`` optional
+* {string}   `` filepath `` required
+* {function} `` callback `` required
+* {root}     `` root     `` optional
 
 
 ### .writeFile(filename, data, callback)
 The file name can be relative or absolute, text is the text to be written inside the file.
-* {string} ``filepath`` required
-* {string} ``data`` required
-* {callback} ``callback`` required
+* {string}   `` filename `` required
+* {string}   `` data     `` required
+* {callback} `` callback `` required
 
 
 
 
 ### .deleteFile(filename, callback)
 Behaves like deleteFile
-* {string} ``filepath`` required
-* {callback} ``callback`` required
+* {string}   `` filepath `` required
+* {callback} `` callback `` required
 
 
 ## Your Tasks

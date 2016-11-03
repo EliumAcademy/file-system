@@ -1,4 +1,4 @@
-/*var file = require('../index');
+var file = require('../index');
 var fs = require('file-system');
 var path = require('path');
 
@@ -37,4 +37,3 @@ describe('rmdir', function() {
   });
 
 });
-*/
