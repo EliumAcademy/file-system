@@ -1,7 +1,3 @@
-/**
- * @fileoverview Strengthen the ability of file system
- * @author wliao <wliao@Ctrip.com> 
- */
 var fs = require('fs');
 var path = require('path');
 

@@ -20,7 +20,7 @@ If the filepath is not absolute, the relative filepath will be used by node star
 the filepath must be relative to the root dir, if not specified the root will default to the directory the script is called from.
 * {string} ``filepath`` required
 * {function} ``callback`` required
-* {root} ``root`` required
+* {root} ``root`` optional
 
 
 ### .writeFile(filename, data, callback)
