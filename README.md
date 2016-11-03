@@ -44,8 +44,12 @@ You should be able to accomplish task 1 & 2 during the day. Only start working o
 
 1. Following the instructions in rmdir.spec.js add test the rmdir functionality
 2. in a new file create the tests for the writeFile functionality and deleteFile
-3. Following the TDD methodology write a function that will delete a directory synchronously even if that directory is not empty.
-4. Following the TDD methodology write a function that will delete a directory synchronously even if that directory is not empty.
+3. Following the TDD methodology write a function that will delete a directory synchronously even if that directory is not empty. this functio should:
+    1. Remove all files in a dir and delete the root dir
+    2. Delete all dirs in a dir and delete the root dir
+    3. Recursively delete all directories and files
+
+
 
 
 ## ATTENTION
